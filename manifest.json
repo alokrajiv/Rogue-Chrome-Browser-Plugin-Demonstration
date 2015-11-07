@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Azane Analyzer Plugin",
+  "name": "Chrome Rogue Extension",
   "description": "Data capture from Live Page",
   "version": "1.0",
 
