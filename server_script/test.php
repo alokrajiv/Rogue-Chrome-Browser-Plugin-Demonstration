@@ -22,9 +22,12 @@ function test_function(){
     } else {
         $ip = $_SERVER['REMOTE_ADDR'];
     }
+    $return['serverResponseStatus'] = "Log saved in server successfully";
+    ini_set('date.timezone', 'UTC');
+    file_put_contents("data.sav", '@UTC '.date('Y-m-d').'  '.date('H:i:s', time() - date('Z')).' : '.$return['action']." from $ip<br>", FILE_APPEND | LOCK_EX);
+    $return["action"] = NULL;
+    unset($return["action"]);
     $return["json"] = json_encode($return);
-        ini_set('date.timezone', 'UTC');
-        file_put_contents("data.sav", '@UTC '.date('Y-m-d').'  '.date('H:i:s', time() - date('Z')).' : '.$return['action']." from $ip<br>", FILE_APPEND | LOCK_EX);
-
+    echo json_encode($return);
     
 }
